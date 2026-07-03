@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inquire — APLakeside Services</title>
+<meta name="description" content="Book a 20-minute discovery call for your team experience on Lake Burley Griffin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="extra.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav" class="visible scrolled">
+  <a class="nav-mark" href="index.html">
+    <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services — Cohesion, without Admin." class="nav-emblem">
+    <span>APLakeside Services</span>
+  </a>
+  <div class="nav-links">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html" class="nav-enquire">Inquire</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="ph-inner">
+    <p class="k">Inquire</p>
+    <h1>Begin with <em>a conversation.</em></h1>
+    <p class="sub">Tell us a little about your team. We'll reply within one business day
+    to arrange a twenty minute discovery call.</p>
+  </div>
+</header>
+
+<section class="section-ivory">
+  <div class="wrap">
+    <div class="enq-grid">
+
+      <form class="enq-form" name="enquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="enquiry">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="organisation">Organisation</label>
+            <input type="text" id="organisation" name="organisation" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="team-size">Team size</label>
+            <select id="team-size" name="team-size">
+              <option value="">Select…</option>
+              <option>Up to 8</option>
+              <option>8–12</option>
+              <option>12–15</option>
+              <option>15+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="experience">Experience of interest</label>
+            <select id="experience" name="experience">
+              <option value="">Not sure yet</option>
+              <option value="standard">Standard</option>
+              <option value="elite">Elite</option>
+              <option value="premium">Premium</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timing">Preferred timing</label>
+            <input type="text" id="timing" name="timing" placeholder="e.g. late July, a Wednesday">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" placeholder="Goals for the day, occasion, anything relevant…"></textarea>
+        </div>
+
+        <button type="submit" class="enq-submit">Send inquiry</button>
+      </form>
+
+      <aside class="enq-aside">
+        <h4>What happens next</h4>
+        <p><span class="it">Within one business day</span> — we reply to arrange a time for a short call.</p>
+        <p><span class="it">On the call</span> — twenty minutes. Your team, your goals, which experience fits, and date options we've already verified with our suppliers.</p>
+        <p><span class="it">After</span> — you receive a written summary and a single link to confirm. No obligation at any point before that.</p>
+        <p style="margin-top:2.5em">Prefer email? <a href="mailto:williambowker@aplakeside.com.au" style="color:var(--navy);border-bottom:1px solid var(--gold);text-decoration:none">williambowker@aplakeside.com.au</a></p>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-left">
+    <div class="mark">
+      <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services" class="f-emblem">
+      <span>APLakeside Services</span>
+    </div>
+    <p>Facilitated team experiences on Lake Burley Griffin, Canberra. Fully arranged, fully documented.</p>
+  </div>
+  <div class="f-right">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html">Inquire</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms</a>
+  </div>
+  <div class="f-legal">APLakeside Services Corporate Experiences · ABN 96 697 140 877 · Canberra ACT<br>© 2026 APLakeside Services. All rights reserved.</div>
+</footer>
+
+<script>
+// pre-select experience from ?experience= query param
+const p=new URLSearchParams(location.search).get('experience');
+if(p){const s=document.getElementById('experience');if(s)s.value=p;}
+</script>
+</body>
+</html>

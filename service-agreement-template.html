@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Agreement | APLakeside Services</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --navy: #0D1B2A;
+    --gold: #B79B61;
+    --ivory: #F8F6F1;
+    --mid: #5A5A5A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 11.5pt;
+    line-height: 1.75;
+    color: var(--ink);
+    background: #fff;
+    padding: 0;
+  }
+
+  /* ── Cover page ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 72px;
+    border-bottom: 3px solid var(--gold);
+    page-break-after: always;
+  }
+  .cover-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+  .cover-brand-abn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0 40px;
+  }
+  .cover-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .cover-title {
+    font-size: 36pt;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+  .cover-title em { font-style: italic; color: var(--gold); }
+
+  .cover-parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .cover-party-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+  .cover-party-name {
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .cover-party-detail {
+    font-size: 10.5pt;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  .cover-booking-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cover-booking-cell {
+    padding: 14px 18px;
+    border-right: 1px solid #ddd;
+  }
+  .cover-booking-cell:last-child { border-right: none; }
+  .cover-booking-cell-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
+  .cover-booking-cell-value {
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .fill { color: var(--gold); font-style: italic; }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-footer-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    color: var(--mid);
+    max-width: 380px;
+    line-height: 1.6;
+  }
+  .cover-footer-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    color: var(--mid);
+    text-align: right;
+  }
+
+  /* ── Body pages ── */
+  .doc {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 14px;
+    margin-bottom: 40px;
+  }
+  .doc-header-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .doc-header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    color: var(--mid);
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 40px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  p { margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  .clause { color: var(--gold); font-family: 'Montserrat', sans-serif; font-size: 8.5pt; margin-right: 6px; }
+
+  ul { margin: 10px 0 12px 22px; }
+  li { margin-bottom: 6px; }
+
+  .highlight-box {
+    background: var(--ivory);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 11pt;
+  }
+
+  table.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 10.5pt;
+  }
+  table.fee-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--gold);
+  }
+  table.fee-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e8e4dc;
+    vertical-align: top;
+  }
+  table.fee-table tr:last-child td { border-bottom: none; font-weight: 600; }
+
+  /* ── Signature block ── */
+  .sig-section {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 2px solid var(--navy);
+  }
+  .sig-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 32px;
+  }
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .sig-party-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 60px;
+  }
+  .sig-line {
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 8px;
+    height: 1px;
+  }
+  .sig-field-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 28px;
+  }
+  .sig-prefilled {
+    font-size: 10.5pt;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .doc-footer {
+    margin-top: 60px;
+    padding-top: 14px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5pt;
+    color: #aaa;
+  }
+
+  /* ── Legal notice ── */
+  .legal-note {
+    background: #f4f1ea;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 9.5pt;
+    color: var(--mid);
+    margin: 24px 0;
+    line-height: 1.65;
+  }
+
+  @media print {
+    body { font-size: 10.5pt; }
+    .cover { page-break-after: always; min-height: 100vh; }
+    .doc { padding: 48px 56px; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+
+  <div class="cover-brand">
+    <div>
+      <div class="cover-brand-name">APLakeside Services</div>
+      <div class="cover-brand-abn">ABN 96 697 140 877 &nbsp;·&nbsp; Canberra ACT &nbsp;·&nbsp; aplakeside.com.au</div>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-label">Corporate Experience Booking</div>
+    <h1 class="cover-title">Service<br><em>Agreement</em></h1>
+
+    <div class="cover-parties">
+      <div>
+        <div class="cover-party-label">Service Provider</div>
+        <div class="cover-party-name">William Bowker</div>
+        <div class="cover-party-detail">
+          APLakeside Services Corporate Experiences<br>
+          ABN 96 697 140 877<br>
+          williambowker@aplakeside.com.au
+        </div>
+      </div>
+      <div>
+        <div class="cover-party-label">Client</div>
+        <div class="cover-party-name fill">[Client Name]</div>
+        <div class="cover-party-detail fill">
+          [Organisation / Agency]<br>
+          [Contact Email]<br>
+          [Contact Phone — optional]
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-booking-grid">
+      <div class="cover-booking-cell">
+        <div class="cover-booking-cell-label">Package</div>
+        <div class="cover-booking-cell-value fill">[Standard / Elite / Premium]</div>
+      </div>
+      <div class="cover-booking-cell">
+        <div class="cover-booking-cell-label">Activity Date</div>
+        <div class="cover-booking-cell-value fill">[DD Month YYYY]</div>
+      </div>
+      <div class="cover-booking-cell">
+        <div class="cover-booking-cell-label">Participants</div>
+        <div class="cover-booking-cell-value fill">[Number] people</div>
+      </div>
+      <div class="cover-booking-cell">
+        <div class="cover-booking-cell-label">Total Fee (inc. GST)</div>
+        <div class="cover-booking-cell-value fill">$[Amount]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-note">
+      This Agreement is made between the parties named above. It becomes binding when both parties have signed below or the Client has paid the Deposit, whichever occurs first.
+    </div>
+    <div class="cover-footer-date">
+      Issued: <span class="fill">[Date Issued]</span><br>
+      Agreement ref: <span class="fill">[APL-YYYY-NNN]</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== BODY ==================== -->
+<div class="doc">
+
+  <div class="doc-header">
+    <div class="doc-header-brand">APLakeside Services · Service Agreement</div>
+    <div class="doc-header-title">Ref: <span class="fill">[APL-YYYY-NNN]</span></div>
+  </div>
+
+  <h2>1. Parties</h2>
+  <p><span class="clause">1.1</span> <strong>Service Provider:</strong> William Bowker trading as APLakeside Services Corporate Experiences (ABN 96 697 140 877) of Canberra ACT ("<strong>APLakeside</strong>", "<strong>we</strong>", "<strong>us</strong>").</p>
+  <p><span class="clause">1.2</span> <strong>Client:</strong> <span class="fill">[Full legal name of individual or organisation]</span>, of <span class="fill">[address or agency, city, state]</span> ("<strong>Client</strong>", "<strong>you</strong>"). Where the Client is booking on behalf of a Commonwealth agency or other organisation, the individual signing this Agreement warrants that they have authority to bind that organisation.</p>
+  <p><span class="clause">1.3</span> Together, APLakeside and the Client are referred to as the "<strong>Parties</strong>".</p>
+
+  <h2>2. The Activity</h2>
+  <p><span class="clause">2.1</span> APLakeside agrees to deliver the following facilitated corporate team experience (the "<strong>Activity</strong>") on the terms of this Agreement:</p>
+
+  <div class="highlight-box">
+    <strong>Package:</strong> <span class="fill">[Standard / Elite / Premium]</span><br>
+    <strong>Activity Date:</strong> <span class="fill">[DD Month YYYY]</span><br>
+    <strong>Start time:</strong> <span class="fill">[e.g. 8:30 am]</span><br>
+    <strong>Expected finish:</strong> <span class="fill">[e.g. 1:00 pm]</span><br>
+    <strong>Location:</strong> Lake Burley Griffin, Canberra ACT (specific meeting point to be confirmed in the Pre-Activity Brief)<br>
+    <strong>Confirmed participants:</strong> <span class="fill">[Number]</span> people (maximum per package: Standard 12 / Elite 12 / Premium 15)<br>
+    <strong>Dietary / accessibility requirements noted:</strong> <span class="fill">[Summary or "None disclosed"]</span>
+  </div>
+
+  <p><span class="clause">2.2</span> The Activity includes all components set out in the published package description for the selected tier, including facilitation, boat hire, venue access, and catering as bundled per that tier. Any component variations agreed in writing prior to the Activity Date form part of this Agreement.</p>
+  <p><span class="clause">2.3</span> <strong>Participant numbers.</strong> The confirmed participant number in clause 2.1 is the number APLakeside will plan and cater for. Minor variations of up to 2 participants may be accommodated where notified at least 7 days before the Activity Date and where the package maximum is not exceeded. Reductions of more than 2 participants do not reduce the Fee.</p>
+  <p><span class="clause">2.4</span> <strong>Documentation.</strong> On completion of the Activity, APLakeside will provide the Client with an Attendance Register, Facilitator Statement, and Capability Development Record as standard inclusions, suitable for internal agency acquittal or L&D record-keeping.</p>
+
+  <h2>3. Fees and Payment</h2>
+
+  <table class="fee-table">
+    <tr>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Due</th>
+    </tr>
+    <tr>
+      <td>Deposit (50% of total fee)</td>
+      <td class="fill">$[Deposit amount] <span style="font-weight:400;color:var(--mid)">(inc. GST)</span></td>
+      <td>Within 7 days of signing this Agreement</td>
+    </tr>
+    <tr>
+      <td>Balance</td>
+      <td class="fill">$[Balance amount] <span style="font-weight:400;color:var(--mid)">(inc. GST)</span></td>
+      <td>14 days before the Activity Date</td>
+    </tr>
+    <tr>
+      <td><strong>Total Fee</strong></td>
+      <td class="fill"><strong>$[Total] (inc. GST)</strong></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <p><span class="clause">3.1</span> Payment is made via the secure payment link provided by APLakeside (processed through Stripe). APLakeside does not collect or store card details.</p>
+  <p><span class="clause">3.2</span> A tax invoice (ABN 96 697 140 877) will be issued upon receipt of each payment. The invoice will show the GST component separately.</p>
+  <p><span class="clause">3.3</span> <strong>Late payment.</strong> If the balance is not received by the due date, APLakeside may, at its discretion, suspend preparation for the Activity Date or treat the booking as cancelled under clause 5.2.</p>
+
+  <h2>4. Confirmation and Booking</h2>
+  <p><span class="clause">4.1</span> This Agreement becomes binding when both Parties have signed it, or when the Client pays the Deposit — whichever occurs first.</p>
+  <p><span class="clause">4.2</span> The Activity Date is held provisionally until the Deposit is received. APLakeside may release a provisionally held date if the Deposit is not received within 7 days of the date this Agreement is issued.</p>
+  <p><span class="clause">4.3</span> No later than 7 days before the Activity Date, APLakeside will send the Client a Pre-Activity Brief containing: confirmed meeting point and parking details; what participants should wear and bring; expected weather conditions; the day's run of activities; emergency contact number; and any participant-specific information relevant to disclosed dietary or accessibility requirements.</p>
+
+  <h2>5. Cancellation</h2>
+  <p><span class="clause">5.1</span> <strong>Cancellation by Client.</strong> The following cancellation schedule applies:</p>
+  <ul>
+    <li><strong>More than 28 days before the Activity Date:</strong> full Deposit refund, less a $150 administration fee.</li>
+    <li><strong>15–28 days before the Activity Date:</strong> 50% of the Deposit is refunded. The balance of the Deposit is forfeited.</li>
+    <li><strong>8–14 days before the Activity Date:</strong> the Deposit is forfeited. No further amount is payable if the balance has not yet been paid.</li>
+    <li><strong>7 days or fewer before the Activity Date (including same-day cancellation):</strong> the full Fee is payable. If the balance has already been paid, no refund is given. If the balance has not been paid, it remains due.</li>
+    <li><strong>Rescheduling:</strong> the Client may reschedule the Activity Date once at no cost if notice is given more than 14 days before the Activity Date, subject to APLakeside's availability. Only one reschedule is permitted under this Agreement.</li>
+  </ul>
+
+  <p><span class="clause">5.2</span> <strong>Cancellation by APLakeside.</strong> APLakeside may cancel or postpone the Activity where: (a) weather or water safety conditions at Lake Burley Griffin are assessed by APLakeside as making the Activity unsafe or undeliverable (see clause 6); (b) a Force Majeure Event occurs (see clause 7); or (c) the Client has not paid the balance by the due date. In cases (a) and (b), APLakeside will offer to reschedule to a mutually agreed date; if rescheduling is not agreed within 30 days, APLakeside will refund all amounts paid. In case (c), APLakeside may cancel without refund of the Deposit.</p>
+
+  <h2>6. Weather Policy</h2>
+  <p><span class="clause">6.1</span> The Activity is designed to operate in all reasonable Canberra weather conditions. Light rain, wind, and cold do not automatically trigger a cancellation.</p>
+  <p><span class="clause">6.2</span> APLakeside will make a go/no-go decision no later than <strong>7:00 am on the Activity Date</strong> (or earlier where conditions are clearly foreseeable) based on: Bureau of Meteorology forecasts; actual on-site conditions at Lake Burley Griffin; and the assessment of the licensed boat operator.</p>
+  <p><span class="clause">6.3</span> Circumstances that will result in cancellation or significant modification include: sustained winds above 30 km/h on the lake; lightning or forecast electrical storm; water safety advisory issued by ACT Parks and Conservation Service; or any other condition assessed by the boat operator as unsafe.</p>
+  <p><span class="clause">6.4</span> The Client will be notified by phone and email immediately upon a go/no-go decision. In the event of a weather cancellation, APLakeside will offer to reschedule to the next available date at no additional cost. If rescheduling is not agreed, a full refund of amounts paid will be given.</p>
+
+  <h2>7. Force Majeure</h2>
+  <p><span class="clause">7.1</span> Neither Party is in breach of this Agreement for any failure or delay in performance caused by a Force Majeure Event, being any event beyond that Party's reasonable control, including acts of God, pandemic, public health emergency, acts of government (including public health directions or venue closure orders), flooding, fire, or civil unrest.</p>
+  <p><span class="clause">7.2</span> The affected Party must notify the other as soon as practicable after becoming aware of a Force Majeure Event. Where the Force Majeure Event prevents delivery for more than 60 days, either Party may terminate this Agreement and APLakeside will refund all amounts paid.</p>
+
+  <h2>8. Health, Safety and Participant Conduct</h2>
+  <p><span class="clause">8.1</span> <strong>Client's responsibilities.</strong> The Client is responsible for ensuring that all participants: are informed of the nature and physical requirements of the Activity; disclose to the Client (for onward disclosure to APLakeside) any medical condition, disability, or mobility limitation that may affect their participation or safety; are capable of participating safely in an on-water activity; and comply with reasonable directions from APLakeside staff, facilitators, and the boat operator during the Activity.</p>
+  <p><span class="clause">8.2</span> <strong>Life jackets and safety equipment.</strong> All participants are required to wear life jackets when on or near the water. Life jackets are provided by the licensed boat operator. Participants who refuse to comply with on-water safety directions may be excluded from the water component of the Activity at APLakeside's discretion, without refund of any portion of the Fee.</p>
+  <p><span class="clause">8.3</span> <strong>Alcohol.</strong> Where alcohol is included in a package, it is provided at the meal or catering component only, not during on-water activities. APLakeside staff and the boat operator reserve the right to decline to serve a participant who appears intoxicated, without liability to APLakeside.</p>
+  <p><span class="clause">8.4</span> <strong>Participant conduct.</strong> APLakeside may remove from the Activity any participant whose conduct is unsafe, threatening, or disruptive, without refund of any portion of the Fee. This includes conduct that contravenes the directions of the boat operator or facilitator.</p>
+  <p><span class="clause">8.5</span> <strong>Medical emergencies.</strong> In the event of a medical emergency during the Activity, APLakeside will contact emergency services (000) immediately and take reasonable first aid steps. The Client acknowledges that APLakeside is not a medical provider and cannot guarantee a medical response.</p>
+  <p><span class="clause">8.6</span> <strong>Dietary and accessibility requirements.</strong> APLakeside will make reasonable efforts to accommodate dietary and accessibility requirements disclosed at least 14 days before the Activity Date. Requirements disclosed after that time are accommodated on a best-efforts basis only.</p>
+
+  <h2>9. Liability and Indemnity</h2>
+  <p><span class="clause">9.1</span> <strong>APLakeside's liability.</strong> To the maximum extent permitted by law, APLakeside's total aggregate liability to the Client under or in connection with this Agreement (whether in contract, tort including negligence, or otherwise) is limited to the total Fee paid by the Client under this Agreement.</p>
+  <p><span class="clause">9.2</span> <strong>Excluded losses.</strong> APLakeside is not liable for any indirect, consequential, special, or incidental loss or damage, including loss of revenue, loss of data, loss of opportunity, or reputational harm, whether or not APLakeside was advised of the possibility of such loss.</p>
+  <p><span class="clause">9.3</span> <strong>Participant risk.</strong> Participation in an on-water activity involves inherent physical risk. The Client accepts these risks on behalf of itself and its participants. Nothing in this clause limits APLakeside's liability for death or personal injury caused by APLakeside's own negligence or wilful misconduct.</p>
+  <div class="legal-note">
+    <strong>Non-excludable guarantees.</strong> Nothing in this Agreement excludes, restricts, or modifies any right or guarantee that cannot lawfully be excluded under the <em>Competition and Consumer Act 2010</em> (Cth), Schedule 2 (Australian Consumer Law). Where such a guarantee applies and our liability cannot be excluded but may be limited, our liability is limited, at our option, to resupply of the Activity or the cost of having the Activity resupplied.
+  </div>
+  <p><span class="clause">9.4</span> <strong>Client indemnity.</strong> The Client indemnifies APLakeside against any claim, loss, damage, or cost (including reasonable legal costs) arising from: (a) the Client's breach of this Agreement; (b) any false or incomplete information provided about participants (including health or dietary information); or (c) the conduct of the Client's participants during the Activity, except to the extent caused by APLakeside's own negligence or wilful misconduct.</p>
+  <p><span class="clause">9.5</span> <strong>Insurance.</strong> APLakeside holds public liability insurance for the Activity. A certificate of currency is available on request.</p>
+
+  <h2>10. Intellectual Property and Photography</h2>
+  <p><span class="clause">10.1</span> All intellectual property in the Activity design, facilitation materials, and documentation provided by APLakeside (including the Capability Development Record and Facilitator Statement) remains the property of APLakeside.</p>
+  <p><span class="clause">10.2</span> APLakeside may take photographs or short video footage during the Activity for its own marketing and promotional purposes. Where identifiable participants appear in such material, APLakeside will: (a) notify the Client in the Pre-Activity Brief; and (b) not publish images of any participant who has indicated, through the Client, that they do not consent. The Client is responsible for collecting and communicating participant consent or objections to APLakeside at least 7 days before the Activity Date.</p>
+  <p><span class="clause">10.3</span> The Client is permitted to take photographs and video for internal organisational purposes. The Client must not publish or use APLakeside branding, photography, or materials for any commercial or promotional purpose without APLakeside's prior written consent.</p>
+
+  <h2>11. Confidentiality</h2>
+  <p><span class="clause">11.1</span> Each Party agrees to keep confidential any non-public information disclosed by the other Party in the course of this Agreement ("<strong>Confidential Information</strong>") and not to disclose it to any third party without prior written consent, except where required by law or by a direction of a Commonwealth agency having authority over the receiving Party.</p>
+  <p><span class="clause">11.2</span> Confidential Information does not include information that: (a) is or becomes publicly available other than through a breach of this clause; (b) was already known to the receiving Party before disclosure; or (c) is independently developed by the receiving Party without reference to the disclosing Party's information.</p>
+  <p><span class="clause">11.3</span> This clause survives termination or expiry of this Agreement for a period of two years.</p>
+
+  <h2>12. Privacy</h2>
+  <p><span class="clause">12.1</span> APLakeside collects and handles personal information in accordance with its Privacy Policy, available at aplakeside.com.au/privacy-policy. The Client consents to APLakeside collecting and using participant information (including names and dietary/accessibility data) as reasonably necessary to deliver the Activity.</p>
+  <p><span class="clause">12.2</span> The Client warrants that it has authority to disclose participant information to APLakeside and has notified participants that their information will be shared with APLakeside for the purpose of delivering the Activity.</p>
+
+  <h2>13. General</h2>
+  <p><span class="clause">13.1</span> <strong>Entire agreement.</strong> This Agreement constitutes the entire agreement between the Parties in relation to the Activity and supersedes all prior representations, discussions, and correspondence. In the event of any inconsistency between this Agreement and the APLakeside website terms or privacy policy, this Agreement prevails in relation to the Activity.</p>
+  <p><span class="clause">13.2</span> <strong>Amendments.</strong> No amendment to this Agreement is effective unless agreed in writing by both Parties.</p>
+  <p><span class="clause">13.3</span> <strong>Severability.</strong> If any provision of this Agreement is held to be invalid, void, or unenforceable, it is to be read down to the minimum necessary or severed, without affecting the validity of the remaining provisions.</p>
+  <p><span class="clause">13.4</span> <strong>No waiver.</strong> A failure or delay by either Party to exercise any right under this Agreement does not operate as a waiver of that right.</p>
+  <p><span class="clause">13.5</span> <strong>Governing law.</strong> This Agreement is governed by the laws of the Australian Capital Territory and the Commonwealth of Australia. Each Party submits to the non-exclusive jurisdiction of the courts of the Australian Capital Territory.</p>
+  <p><span class="clause">13.6</span> <strong>Dispute resolution.</strong> The Parties agree to attempt to resolve any dispute arising under this Agreement in good faith through direct negotiation before commencing any legal proceedings.</p>
+  <p><span class="clause">13.7</span> <strong>Electronic execution.</strong> This Agreement may be executed electronically (including by email confirmation of acceptance) and in counterparts, each of which constitutes an original and all of which together constitute one instrument, consistent with the <em>Electronic Transactions Act 2001</em> (ACT).</p>
+
+  <!-- ── Signature block ── -->
+  <div class="sig-section">
+    <div class="sig-section-title">Execution</div>
+    <div class="sig-grid">
+
+      <div>
+        <div class="sig-party-label">Signed for APLakeside Services</div>
+        <div class="sig-line"></div>
+        <div class="sig-field-label">Signature</div>
+        <div class="sig-prefilled">William Bowker</div>
+        <div class="sig-field-label">Full name</div>
+        <div class="sig-prefilled">APLakeside Services Corporate Experiences</div>
+        <div class="sig-field-label">On behalf of</div>
+        <div class="sig-line" style="margin-top:24px"></div>
+        <div class="sig-field-label">Date</div>
+      </div>
+
+      <div>
+        <div class="sig-party-label">Signed by the Client</div>
+        <div class="sig-line"></div>
+        <div class="sig-field-label">Signature</div>
+        <div class="sig-line" style="margin-top:16px"></div>
+        <div class="sig-field-label">Full name</div>
+        <div class="sig-line" style="margin-top:16px"></div>
+        <div class="sig-field-label">On behalf of (if signing for an organisation)</div>
+        <div class="sig-line" style="margin-top:24px"></div>
+        <div class="sig-field-label">Date</div>
+      </div>
+
+    </div>
+
+    <div class="legal-note" style="margin-top:40px">
+      <strong>Note on electronic acceptance.</strong> Under clause 13.7, this Agreement also becomes binding when the Client pays the Deposit. Payment of the Deposit constitutes acceptance of all terms of this Agreement in lieu of a wet or electronic signature.
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span>APLakeside Services Corporate Experiences · ABN 96 697 140 877 · aplakeside.com.au</span>
+    <span>Ref: <span class="fill">[APL-YYYY-NNN]</span> · Confidential</span>
+  </div>
+
+</div>
+</body>
+</html>

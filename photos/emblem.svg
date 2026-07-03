@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#1a2e49"/>
+      <stop offset="100%" stop-color="#0a1525"/>
+    </radialGradient>
+    <radialGradient id="ring" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4B97E"/>
+      <stop offset="60%" stop-color="#B79B61"/>
+      <stop offset="100%" stop-color="#8a6e3a"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#F0CE7A"/>
+      <stop offset="100%" stop-color="#B79B61"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer gold ring -->
+  <circle cx="60" cy="60" r="58" fill="url(#ring)"/>
+  <!-- Inner dark background -->
+  <circle cx="60" cy="60" r="53" fill="url(#bg)"/>
+
+  <!-- Sun / gold orb -->
+  <circle cx="60" cy="34" r="9" fill="url(#sun)" filter="url(#glow)"/>
+  <circle cx="60" cy="34" r="6.5" fill="#F0CE7A" opacity=".9"/>
+
+  <!-- Wave lines (silver/white) -->
+  <path d="M26 60 C34 54, 42 54, 50 60 C58 66, 66 66, 74 60 C82 54, 90 54, 94 60"
+        stroke="#E8E4DC" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M32 73 C39 68, 46 68, 53 73 C60 78, 67 78, 74 73 C81 68, 86 68, 90 73"
+        stroke="#E8E4DC" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".65"/>
+
+  <!-- Text -->
+  <text x="60" y="96" text-anchor="middle"
+        font-family="'EB Garamond', Georgia, serif" font-size="8.5" fill="#D4B97E" letter-spacing="1.5">Cohesion,</text>
+  <text x="60" y="106" text-anchor="middle"
+        font-family="'EB Garamond', Georgia, serif" font-size="6.5" fill="#8a9bb0" letter-spacing="1">without Admin.</text>
+</svg>

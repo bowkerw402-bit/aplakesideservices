@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Experience — APLakeside Services</title>
+<meta name="description" content="Half day plus team experience on Lake Burley Griffin. GoBoat Plus and an integrated Walt &amp; Burley restaurant experience, from $4,950.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="extra.css">
+<style>
+.exp-hero {
+  position: relative; min-height: 62vh; display: flex; align-items: flex-end;
+  padding: 170px 48px 90px; overflow: hidden;
+  background:
+    linear-gradient(to bottom, rgba(6,13,28,.72) 0%, rgba(12,24,48,.48) 50%, rgba(20,38,61,.88) 100%),
+    url('photos/waterfront-venue-exterior.webp') center 38% / cover no-repeat;
+}
+.exp-hero-inner { max-width: 1180px; margin: 0 auto; width: 100%; }
+.exp-tag { display: inline-block; font-size: 10px; letter-spacing: .4em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 7px 18px; margin-bottom: 28px; }
+.exp-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px,5.5vw,68px); line-height: 1.15; color: var(--ivory); max-width: 14em; }
+.exp-hero h1 em { font-style: italic; color: var(--gold-light); }
+.exp-hero-meta { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+.exp-hero-meta span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(248,246,241,.6); }
+.exp-hero-meta strong { display: block; font-size: 22px; letter-spacing: 0; color: var(--ivory); font-family: var(--serif); font-weight: 400; margin-top: 6px; text-transform: none; }
+
+.exp-body { background: var(--ivory); color: var(--ink); padding: 13vh 0; }
+.exp-body .wrap { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
+.exp-lead { font-family: var(--serif); font-size: clamp(20px,2vw,26px); line-height: 1.55; color: var(--navy); margin-bottom: 52px; max-width: 32em; }
+.exp-section-label { font-size: 10px; letter-spacing: .45em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.exp-steps { list-style: none; border-top: 1px solid rgba(20,38,61,.12); }
+.exp-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 0 20px; padding: 28px 0; border-bottom: 1px solid rgba(20,38,61,.12); }
+.exp-steps li .num { font-family: var(--serif); font-size: 13px; color: var(--gold); padding-top: 2px; }
+.exp-steps li h4 { font-size: 14px; letter-spacing: .05em; font-weight: 500; margin-bottom: 8px; color: var(--navy); text-transform: uppercase; }
+.exp-steps li p { font-size: 14px; line-height: 1.85; color: var(--slate); margin: 0; }
+
+.exp-aside { position: sticky; top: 100px; }
+.exp-card { background: var(--navy); color: var(--ivory); padding: 48px 40px; }
+.exp-card .price-label { font-size: 10px; letter-spacing: .4em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 14px; }
+.exp-card .price { font-family: var(--serif); font-size: 44px; font-weight: 400; color: var(--ivory); line-height: 1; }
+.exp-card .price-note { font-size: 12px; color: rgba(248,246,241,.45); margin-top: 8px; }
+.exp-card-divider { border: none; border-top: 1px solid rgba(183,155,97,.2); margin: 32px 0; }
+.exp-card ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.exp-card ul li { font-size: 13px; color: rgba(248,246,241,.75); display: flex; gap: 12px; line-height: 1.6; }
+.exp-card ul li::before { content: '·'; color: var(--gold); flex-shrink: 0; }
+.exp-cta { display: block; margin-top: 36px; text-align: center; background: var(--gold); color: var(--ink); text-decoration: none; padding: 18px 24px; font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; transition: background .3s, letter-spacing .3s; }
+.exp-cta:hover { background: var(--gold-light); letter-spacing: .4em; }
+.exp-alt { text-align: center; margin-top: 16px; font-size: 11.5px; color: rgba(248,246,241,.4); }
+
+.exp-deliverables { background: var(--ink); color: var(--ivory); padding: 10vh 0; }
+.exp-deliverables .wrap { max-width: 860px; }
+.exp-deliverables h3 { font-family: var(--serif); font-size: clamp(22px,2.5vw,32px); font-weight: 400; margin-bottom: 40px; }
+.exp-deliverables h3 em { font-style: italic; color: var(--gold-soft); }
+.del-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(183,155,97,.15); }
+.del-item { background: var(--ink); padding: 32px 36px; }
+.del-item h5 { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.del-item p { font-size: 13.5px; line-height: 1.8; color: rgba(248,246,241,.55); }
+
+@media(max-width:1024px) { .exp-body .wrap { grid-template-columns: 1fr; } .exp-aside { position: static; } }
+@media(max-width:980px) { .exp-hero { padding: 140px 26px 60px; } .del-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav" class="visible scrolled">
+  <a class="nav-mark" href="index.html">
+    <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services" class="nav-emblem">
+    <span>APLakeside Services</span>
+  </a>
+  <div class="nav-links">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html" class="nav-enquire">Inquire</a>
+  </div>
+</nav>
+
+<header class="exp-hero">
+  <div class="exp-hero-inner">
+    <span class="exp-tag">02 · Premium · Most chosen</span>
+    <h1>From the lake to the table.<br><em>Five minutes apart.</em></h1>
+    <div class="exp-hero-meta">
+      <div><span>Duration</span><strong>Half day plus</strong></div>
+      <div><span>Group size</span><strong>Up to 12</strong></div>
+      <div><span>From</span><strong>$4,950</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="exp-body">
+  <div class="wrap">
+    <div class="exp-main">
+      <p class="exp-lead">The Premium experience moves cleanly from GoBoat Plus to Walt &amp; Burley. The restaurant, dining space and catering are one integrated booking, with only a five minute walk between the boats and the table.</p>
+
+      <p class="exp-section-label">What the day looks like</p>
+      <ul class="exp-steps">
+        <li>
+          <span class="num">i.</span>
+          <div>
+            <h4>GoBoat Plus</h4>
+            <p>An upgraded GoBoat experience creates more time and space for the team to connect before the facilitated work begins.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">ii.</span>
+          <div>
+            <h4>Five minute walk</h4>
+            <p>From the boats, the team walks approximately five minutes to Walt &amp; Burley. No separate transport booking or waiting time is required.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">iii.</span>
+          <div>
+            <h4>Walt &amp; Burley</h4>
+            <p>Walt &amp; Burley provides the restaurant setting and the food as one experience. There is no separate venue and caterer to coordinate.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">iv.</span>
+          <div>
+            <h4>Extended facilitated session</h4>
+            <p>A deeper session turns the morning's dynamics into clear commitments, followed by a Facilitator Summary and Action Item Matrix.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="exp-aside">
+      <div class="exp-card">
+        <p class="price-label">Premium · From</p>
+        <p class="price">$4,950</p>
+        <p class="price-note">Up to 12 people</p>
+        <hr class="exp-card-divider">
+        <ul>
+          <li>Half day plus experience</li>
+          <li>GoBoat Plus</li>
+          <li>Five minute walk between locations</li>
+          <li>Walt &amp; Burley restaurant and catering</li>
+          <li>Extended facilitated session</li>
+          <li>Facilitator Summary</li>
+          <li>Action Item Matrix</li>
+          <li>Invoice and attendance register</li>
+          <li>All logistics arranged</li>
+        </ul>
+        <a href="enquire.html?experience=premium" class="exp-cta">Request this experience</a>
+        <p class="exp-alt">or call us to discuss</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="exp-deliverables">
+  <div class="wrap">
+    <h3>Built for <em>practical follow through.</em></h3>
+    <div class="del-grid">
+      <div class="del-item">
+        <h5>Facilitator Summary</h5>
+        <p>A clear account of what surfaced, what the team worked through, and what it decided.</p>
+      </div>
+      <div class="del-item">
+        <h5>Action Item Matrix</h5>
+        <p>Specific actions with named owners and agreed timelines. Not general themes. Named commitments from named people.</p>
+      </div>
+      <div class="del-item">
+        <h5>Team Commitments</h5>
+        <p>The decisions made in the room, captured in language the team can use immediately.</p>
+      </div>
+      <div class="del-item">
+        <h5>Procurement Documentation</h5>
+        <p>Invoice, attendance register, and supplier record, organised and delivered together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ivory" style="padding: 8vh 0; text-align: center;">
+  <div class="wrap" style="max-width: 640px;">
+    <p class="sec-k" style="text-align:center">Ready to book</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:400;color:var(--navy);margin-bottom:24px">Twenty minutes is all it takes to confirm the day.</h2>
+    <a href="enquire.html?experience=premium" style="display:inline-block;background:var(--navy);color:var(--ivory);text-decoration:none;padding:18px 48px;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;transition:background .3s">Request a Quote</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-left">
+    <div class="mark">
+      <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services" class="f-emblem">
+      <span>APLakeside Services</span>
+    </div>
+    <p>Facilitated team experiences on Lake Burley Griffin, Canberra. Fully arranged, fully documented.</p>
+  </div>
+  <div class="f-right">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html">Inquire</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms</a>
+  </div>
+  <div class="f-legal">APLakeside Services Corporate Experiences · ABN 96 697 140 877 · Canberra ACT<br>© 2026 APLakeside Services. All rights reserved.</div>
+</footer>
+</body>
+</html>

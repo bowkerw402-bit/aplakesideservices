@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Experience — APLakeside Services</title>
+<meta name="description" content="Full day executive team experience on Lake Burley Griffin. MV Reliance, executive venue options and private transfers, from $7,950.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="extra.css">
+<style>
+.exp-hero {
+  position: relative; min-height: 62vh; display: flex; align-items: flex-end;
+  padding: 170px 48px 90px; overflow: hidden;
+  background:
+    linear-gradient(to bottom, rgba(6,13,28,.72) 0%, rgba(12,24,48,.48) 50%, rgba(20,38,61,.88) 100%),
+    url('photos/lake-balloons.jpg') center 50% / cover no-repeat;
+}
+.exp-hero-inner { max-width: 1180px; margin: 0 auto; width: 100%; }
+.exp-tag { display: inline-block; font-size: 10px; letter-spacing: .4em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 7px 18px; margin-bottom: 28px; }
+.exp-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px,5.5vw,68px); line-height: 1.15; color: var(--ivory); max-width: 14em; }
+.exp-hero h1 em { font-style: italic; color: var(--gold-light); }
+.exp-hero-meta { display: flex; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+.exp-hero-meta span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(248,246,241,.6); }
+.exp-hero-meta strong { display: block; font-size: 22px; letter-spacing: 0; color: var(--ivory); font-family: var(--serif); font-weight: 400; margin-top: 6px; text-transform: none; }
+
+.exp-body { background: var(--ivory); color: var(--ink); padding: 13vh 0; }
+.exp-body .wrap { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
+.exp-lead { font-family: var(--serif); font-size: clamp(20px,2vw,26px); line-height: 1.55; color: var(--navy); margin-bottom: 52px; max-width: 32em; }
+.exp-section-label { font-size: 10px; letter-spacing: .45em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.exp-steps { list-style: none; border-top: 1px solid rgba(20,38,61,.12); }
+.exp-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 0 20px; padding: 28px 0; border-bottom: 1px solid rgba(20,38,61,.12); }
+.exp-steps li .num { font-family: var(--serif); font-size: 13px; color: var(--gold); padding-top: 2px; }
+.exp-steps li h4 { font-size: 14px; letter-spacing: .05em; font-weight: 500; margin-bottom: 8px; color: var(--navy); text-transform: uppercase; }
+.exp-steps li p { font-size: 14px; line-height: 1.85; color: var(--slate); margin: 0; }
+
+.exp-aside { position: sticky; top: 100px; }
+.exp-card { background: var(--navy); color: var(--ivory); padding: 48px 40px; position: relative; }
+.exp-card-badge { position: absolute; top: -14px; left: 40px; background: var(--gold); color: var(--ink); font-size: 9px; letter-spacing: .35em; text-transform: uppercase; padding: 6px 16px; }
+.exp-card .price-label { font-size: 10px; letter-spacing: .4em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 14px; }
+.exp-card .price { font-family: var(--serif); font-size: 44px; font-weight: 400; color: var(--ivory); line-height: 1; }
+.exp-card .price-note { font-size: 12px; color: rgba(248,246,241,.45); margin-top: 8px; }
+.exp-card-divider { border: none; border-top: 1px solid rgba(183,155,97,.2); margin: 32px 0; }
+.exp-card ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.exp-card ul li { font-size: 13px; color: rgba(248,246,241,.75); display: flex; gap: 12px; line-height: 1.6; }
+.exp-card ul li::before { content: '·'; color: var(--gold); flex-shrink: 0; }
+.exp-cta { display: block; margin-top: 36px; text-align: center; background: var(--gold); color: var(--ink); text-decoration: none; padding: 18px 24px; font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; transition: background .3s, letter-spacing .3s; }
+.exp-cta:hover { background: var(--gold-light); letter-spacing: .4em; }
+.exp-alt { text-align: center; margin-top: 16px; font-size: 11.5px; color: rgba(248,246,241,.4); }
+
+.exp-deliverables { background: var(--ink); color: var(--ivory); padding: 10vh 0; }
+.exp-deliverables .wrap { max-width: 860px; }
+.exp-deliverables h3 { font-family: var(--serif); font-size: clamp(22px,2.5vw,32px); font-weight: 400; margin-bottom: 40px; }
+.exp-deliverables h3 em { font-style: italic; color: var(--gold-soft); }
+.del-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(183,155,97,.15); }
+.del-item { background: var(--ink); padding: 32px 36px; }
+.del-item h5 { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.del-item p { font-size: 13.5px; line-height: 1.8; color: rgba(248,246,241,.55); }
+
+@media(max-width:1024px) { .exp-body .wrap { grid-template-columns: 1fr; } .exp-aside { position: static; } }
+@media(max-width:980px) { .exp-hero { padding: 140px 26px 60px; } .del-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav" class="visible scrolled">
+  <a class="nav-mark" href="index.html">
+    <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services" class="nav-emblem">
+    <span>APLakeside Services</span>
+  </a>
+  <div class="nav-links">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html" class="nav-enquire">Inquire</a>
+  </div>
+</nav>
+
+<header class="exp-hero">
+  <div class="exp-hero-inner">
+    <span class="exp-tag">03 · Elite</span>
+    <h1>A private vessel.<br><em>A fully managed day.</em></h1>
+    <div class="exp-hero-meta">
+      <div><span>Duration</span><strong>Full day</strong></div>
+      <div><span>Group size</span><strong>Up to 15</strong></div>
+      <div><span>From</span><strong>$7,950</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="exp-body">
+  <div class="wrap">
+    <div class="exp-main">
+      <p class="exp-lead">The Elite experience is the complete APLakeside program: a private charter aboard Love Boats' MV Reliance, executive standard venue options, premium catering and private return transfers.</p>
+
+      <p class="exp-section-label">What the day looks like</p>
+      <ul class="exp-steps">
+        <li>
+          <span class="num">i.</span>
+          <div>
+            <h4>MV Reliance private charter</h4>
+            <p>Your team has Love Boats' MV Reliance for a private morning on Lake Burley Griffin, creating a more distinctive and composed start to the day.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">ii.</span>
+          <div>
+            <h4>Private return transfer</h4>
+            <p>A shuttle or private transfer is included between the day's locations, so the team moves together without organising its own transport.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">iii.</span>
+          <div>
+            <h4>Executive venue and catering</h4>
+            <p>The program uses Hyatt Canberra or the NMA Peninsula Room, selected to suit the session. At the NMA, catering is delivered through its exclusive Broadbean arrangement as part of the booking.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">iv.</span>
+          <div>
+            <h4>Executive development package</h4>
+            <p>A full facilitated program and written record structured for senior review, including commitments, assigned actions and strategic follow through.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="exp-aside">
+      <div class="exp-card">
+        <p class="price-label">Elite · From</p>
+        <p class="price">$7,950</p>
+        <p class="price-note">Up to 15 people</p>
+        <hr class="exp-card-divider">
+        <ul>
+          <li>Full day experience</li>
+          <li>Love Boats' MV Reliance</li>
+          <li>Hyatt Canberra or NMA Peninsula Room</li>
+          <li>Premium catering</li>
+          <li>Private return transfer</li>
+          <li>Extended facilitated session</li>
+          <li>Executive development package</li>
+          <li>Invoice and attendance register</li>
+          <li>All logistics arranged</li>
+        </ul>
+        <a href="enquire.html?experience=elite" class="exp-cta">Request this experience</a>
+        <p class="exp-alt">or call us to discuss</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="exp-deliverables">
+  <div class="wrap">
+    <h3>Built to support <em>senior review.</em></h3>
+    <div class="del-grid">
+      <div class="del-item">
+        <h5>Executive Development Package</h5>
+        <p>A structured record of objectives, observations, outcomes and commitments for senior stakeholders.</p>
+      </div>
+      <div class="del-item">
+        <h5>Strategic Commitments Report</h5>
+        <p>Specific actions, accountable owners and agreed timelines captured for follow through.</p>
+      </div>
+      <div class="del-item">
+        <h5>Facilitator Summary</h5>
+        <p>A detailed account of what surfaced, what was resolved and what the team agreed to change.</p>
+      </div>
+      <div class="del-item">
+        <h5>Governance Documentation</h5>
+        <p>Invoice, attendance register and supplier record, organised for your internal records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ivory" style="padding: 8vh 0; text-align: center;">
+  <div class="wrap" style="max-width: 640px;">
+    <p class="sec-k" style="text-align:center">Ready to book</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:400;color:var(--navy);margin-bottom:24px">Twenty minutes is all it takes to confirm the day.</h2>
+    <a href="enquire.html?experience=elite" style="display:inline-block;background:var(--navy);color:var(--ivory);text-decoration:none;padding:18px 48px;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;transition:background .3s">Request a Quote</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-left">
+    <div class="mark">
+      <img src="photos/brand-emblem-clean.webp" alt="APLakeside Services" class="f-emblem">
+      <span>APLakeside Services</span>
+    </div>
+    <p>Facilitated team experiences on Lake Burley Griffin, Canberra. Fully arranged, fully documented.</p>
+  </div>
+  <div class="f-right">
+    <a href="experiences.html">Experiences</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="enquire.html">Inquire</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms</a>
+  </div>
+  <div class="f-legal">APLakeside Services Corporate Experiences · ABN 96 697 140 877 · Canberra ACT<br>© 2026 APLakeside Services. All rights reserved.</div>
+</footer>
+</body>
+</html>
