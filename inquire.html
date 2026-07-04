@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inquire — APLakeside Services</title>
-<meta name="description" content="Book a 20-minute discovery call for your team experience on Lake Burley Griffin.">
+<title>Inquire About a Canberra Team Day | APLakeside</title>
+<meta name="description" content="Tell APLakeside about your Canberra team, preferred timing and experience. We reply within one business day.">
+<link rel="canonical" href="https://aplakeside.com.au/inquire">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Inquire About a Canberra Team Day | APLakeside">
+<meta property="og:description" content="Tell APLakeside about your Canberra team, preferred timing and experience. We reply within one business day.">
+<meta property="og:url" content="https://aplakeside.com.au/inquire">
+<meta property="og:image" content="https://aplakeside.com.au/photos/lake-tour-boats.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -41,6 +48,13 @@
 
       <form class="enq-form" name="enquiry" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="enquiry">
+        <input type="hidden" name="source" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
 
         <div class="row">
@@ -130,5 +144,6 @@
 const p=new URLSearchParams(location.search).get('experience');
 if(p){const s=document.getElementById('experience');if(s)s.value=p;}
 </script>
+<script src="attribution.js"></script>
 </body>
 </html>

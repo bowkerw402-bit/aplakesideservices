@@ -1,0 +1,49 @@
+.growth-hero {
+  min-height: 64vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 170px 48px 90px;
+  background:
+    linear-gradient(to bottom, rgba(6,13,28,.72), rgba(12,24,48,.55) 50%, rgba(20,38,61,.92)),
+    url('photos/lake-tour-boats.webp') center 54% / cover no-repeat;
+}
+.growth-hero.offsite {
+  background:
+    linear-gradient(to bottom, rgba(6,13,28,.76), rgba(12,24,48,.58) 50%, rgba(20,38,61,.94)),
+    url('photos/session-room-1.jpg') center 72% / cover no-repeat;
+}
+.growth-hero-inner { max-width: 1180px; width: 100%; margin: 0 auto; }
+.growth-k { color: var(--gold-soft); font-size: 10px; letter-spacing: .45em; text-transform: uppercase; margin-bottom: 24px; }
+.growth-hero h1 { color: var(--ivory); font: 400 clamp(38px,5.4vw,70px)/1.12 var(--serif); max-width: 14em; }
+.growth-hero h1 em { color: var(--gold-soft); font-style: italic; }
+.growth-sub { color: rgba(248,246,241,.72); font-size: 15px; line-height: 1.9; max-width: 58ch; margin-top: 26px; }
+.growth-cta { display: inline-block; margin-top: 34px; padding: 18px 34px; background: var(--gold); color: var(--ink); text-decoration: none; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; }
+.growth-section { padding: 11vh 0; background: var(--ivory); }
+.growth-section.dark { background: var(--ink); color: var(--ivory); }
+.growth-wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+.growth-intro { font: 400 clamp(24px,3vw,40px)/1.4 var(--serif); color: var(--navy); max-width: 27em; }
+.growth-section.dark .growth-intro { color: var(--ivory); }
+.growth-copy { margin-top: 28px; max-width: 67ch; color: var(--slate); font-size: 15px; line-height: 2; }
+.growth-section.dark .growth-copy { color: rgba(248,246,241,.68); }
+.growth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 58px; background: rgba(20,38,61,.12); }
+.growth-card { background: var(--ivory); padding: 38px 34px; }
+.growth-card span { color: var(--gold); font: italic 14px var(--serif); }
+.growth-card h2, .growth-card h3 { color: var(--navy); font: 500 23px/1.3 var(--serif); margin: 14px 0; }
+.growth-card p { color: var(--slate); font-size: 13.5px; line-height: 1.9; }
+.growth-list { margin-top: 44px; border-top: 1px solid rgba(248,246,241,.14); }
+.growth-list li { list-style: none; display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid rgba(248,246,241,.14); }
+.growth-list .num { color: var(--gold); font: italic 14px var(--serif); }
+.growth-list h3 { color: var(--ivory); font: 500 20px var(--serif); margin-bottom: 8px; }
+.growth-list p { color: rgba(248,246,241,.62); font-size: 13.5px; line-height: 1.85; }
+.growth-faq { max-width: 820px; margin: 0 auto; }
+.growth-faq details { border-top: 1px solid rgba(20,38,61,.14); padding: 24px 0; }
+.growth-faq details:last-child { border-bottom: 1px solid rgba(20,38,61,.14); }
+.growth-faq summary { cursor: pointer; color: var(--navy); font: 500 19px var(--serif); }
+.growth-faq p { color: var(--slate); font-size: 14px; line-height: 1.9; padding-top: 14px; }
+.growth-links { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 34px; }
+.growth-links a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); font: 500 16px var(--serif); }
+@media(max-width:900px) {
+  .growth-hero { padding: 140px 26px 64px; }
+  .growth-wrap { padding: 0 26px; }
+  .growth-grid { grid-template-columns: 1fr; }
+}
