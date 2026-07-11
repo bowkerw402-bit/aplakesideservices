@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locations — Gourmet Scoops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6EED0; --panel:#FBF7E9; --ink:#2C2823; --gold:#C8A24A; --gold-deep:#8C6B24;
+    --berry:#BE4258; --muted:#7A7266; --faint:rgba(44,40,35,.1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;overflow-x:hidden;
+    display:flex;flex-direction:column;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+
+  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:16px clamp(20px,4.5vw,60px);background:rgba(246,238,208,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--faint)}
+  nav .links{display:flex;align-items:center;gap:clamp(14px,2.4vw,38px);font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+  nav .links a{transition:color .2s} nav .links a:hover{color:var(--gold-deep)}
+  nav .links a.here{color:var(--gold-deep)}
+  .order-btn{display:inline-block;padding:11px 24px;border:1px solid var(--ink);border-radius:100px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:background .22s,color .22s}
+  .order-btn:hover{background:var(--ink);color:var(--cream)}
+
+  main{flex:1;max-width:760px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,68px);text-align:center;width:100%}
+  .kicker{font-size:clamp(13px,1.3vw,15px);letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:var(--berry)}
+  h1{margin:clamp(14px,1.6vw,20px) 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:.01em}
+  .lede{margin-top:clamp(20px,2.6vw,30px);font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2vw,24px);
+    font-style:italic;color:#5A5349;line-height:1.5}
+  .map-ph{margin-top:clamp(26px,3.4vw,40px);aspect-ratio:16/9;border:1.5px dashed rgba(140,107,36,.45);border-radius:18px;
+    background:rgba(251,247,233,.6);display:flex;align-items:center;justify-content:center}
+  .map-ph span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:#9A8F7C}
+  .follow{margin-top:clamp(20px,2.6vw,28px);font-size:14px;color:#4A443B;line-height:1.7}
+  .follow a{color:var(--berry);font-weight:600}
+
+  footer{background:var(--panel);border-top:1px solid var(--faint);padding:clamp(40px,5vw,64px) 20px;text-align:center}
+  footer .links{display:flex;justify-content:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:26px}
+  footer .brand{font-size:15px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;padding-left:.34em}
+  footer .sub{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#9A8F7C;font-weight:600;margin-top:8px;padding-left:.34em}
+  footer .ig{display:inline-block;margin-top:20px;font-size:16px;letter-spacing:.14em;color:var(--berry);font-weight:600}
+  .footer-logo{display:block;width:128px;height:auto;margin:0 auto 8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="links">
+    <a href="menu.html">Menu</a>
+    <a href="gourmet-scoops.html#build">Build a Scoop</a>
+    <a href="about.html">About</a>
+    <a href="locations.html" class="here">Locations</a>
+  </div>
+  <a href="gourmet-scoops.html#build" class="order-btn">Order Now</a>
+</nav>
+
+<main>
+  <div class="kicker">Find Us</div>
+  <h1>Locations</h1>
+  <p class="lede">Serving New Zealand style real fruit ice-cream — locations announced soon.</p>
+  <div class="map-ph"><span>Map — Coming Soon</span></div>
+  <p class="follow">Follow <a href="#">@gourmetscoops</a> for pop-up dates and our first permanent spot.</p>
+</main>
+
+<footer>
+  <div class="links">
+    <a href="menu.html">Menu</a><a href="gourmet-scoops.html#build">Build a Scoop</a><a href="about.html">About</a><a href="locations.html">Locations</a>
+  </div>
+  <img class="footer-logo" src="gourmet-scoops-logo.png" alt="Gourmet Scoops Premium Crafted">
+  <a class="ig" href="#">@gourmetscoops</a>
+</footer>
+
+</body>
+</html>

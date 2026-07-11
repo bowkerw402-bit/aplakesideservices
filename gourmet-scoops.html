@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gourmet Scoops — Real Fruit Icecream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6EED0; --panel:#FBF7E9; --ink:#2C2823; --gold:#C8A24A; --gold-deep:#8C6B24;
+    --berry:#BE4258; --muted:#7A7266; --faint:rgba(44,40,35,.1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:16px clamp(20px,4.5vw,60px);background:rgba(246,238,208,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--faint)}
+  nav .links{display:flex;align-items:center;gap:clamp(14px,2.4vw,38px);font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+  nav .links a{white-space:nowrap}
+  nav .links a{transition:color .2s} nav .links a:hover{color:var(--gold-deep)}
+  .order-btn{display:inline-block;padding:11px 24px;border:1px solid var(--ink);border-radius:100px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:background .22s,color .22s}
+  .order-btn:hover{background:var(--ink);color:var(--cream)}
+  @media(max-width:640px){
+    nav{justify-content:center;padding:14px 12px}
+    nav .links{width:100%;max-width:100%;flex-wrap:wrap;justify-content:center;gap:8px 13px;font-size:10px;letter-spacing:.12em}
+    .order-btn{display:none}
+  }
+
+  /* ---------- BRAND MARK (exact menu logo, flat) ---------- */
+  .sign{position:relative;min-height:clamp(300px,33vw,410px);display:flex;align-items:center;justify-content:center;
+    padding:clamp(30px,4vw,54px) clamp(24px,7vw,120px)}
+  .brand-wall-logo{position:relative;width:min(50vw,370px);z-index:2}
+  .brand-wall-logo img{display:block;width:100%;height:auto;object-fit:contain}
+  @media(max-width:700px){
+    .sign{min-height:290px;padding:26px 14px}
+    .brand-wall-logo{width:min(76vw,300px)}
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{max-width:900px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,68px) 0;text-align:center}
+  .kicker{font-size:clamp(13px,1.3vw,15px);letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:var(--berry)}
+  h1{margin:clamp(14px,1.6vw,20px) 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(52px,7vw,104px);line-height:.95;letter-spacing:.01em}
+  .divider{display:flex;align-items:center;gap:16px;max-width:420px;margin:clamp(18px,2.4vw,28px) auto}
+  .divider .line{height:1px;flex:1;background:rgba(44,40,35,.28)}
+  .tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,1.9vw,25px);font-style:italic;color:#5A5349}
+  .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:clamp(22px,2.6vw,30px)}
+  .cta-dark{display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border-radius:100px;background:var(--ink);color:var(--cream);
+    font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:transform .22s,box-shadow .22s}
+  .cta-dark:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(44,40,35,.24)}
+  .cta-line{display:inline-flex;align-items:center;padding:15px 28px;border-radius:100px;border:1px solid rgba(44,40,35,.3);
+    font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:background .22s,color .22s}
+  .cta-line:hover{background:var(--ink);color:var(--cream)}
+
+  /* ---------- CONFIGURATOR ---------- */
+  .config-wrap{max-width:1200px;margin:clamp(36px,4.5vw,60px) auto 0;padding:0 clamp(20px,5vw,68px)}
+  .build-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(18px,2.4vw,32px);align-items:stretch}
+  /* scoop photo card — swaps with the selected fruit */
+  .scoop-photo{align-self:start;background:#EFE0CD;border:1px solid rgba(140,107,36,.28);border-radius:22px;
+    overflow:hidden;box-shadow:0 26px 50px -34px rgba(44,40,35,.5);display:flex;flex-direction:column}
+  .scoop-photo .frame{aspect-ratio:300/430;background:#EFE0CD;overflow:hidden}
+  .scoop-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .25s ease}
+  .scoop-photo.swap img{opacity:0}
+  .scoop-photo .cap{padding:13px 16px 17px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(16px,1.7vw,21px);color:#5A5349;background:#EFE0CD;line-height:1.3}
+  @media(max-width:960px){.build-grid{grid-template-columns:1fr}.scoop-photo{max-width:340px;margin:0 auto;width:100%}}
+  .config{background:var(--panel);border:1px solid var(--gold);border-radius:22px;padding:clamp(24px,3vw,36px);
+    box-shadow:0 26px 50px -34px rgba(44,40,35,.5)}
+  .config h2{font-size:14px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;text-align:center}
+  .config .steps{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,36px);margin-top:clamp(20px,2.4vw,28px)}
+  @media(max-width:640px){.config .steps{grid-template-columns:1fr}}
+  .step-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#9A8F7C;margin-bottom:14px}
+  .step-label b{color:var(--gold-deep);margin-right:8px;font-weight:600}
+
+  .sizes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .size-btn{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px 13px;border-radius:14px;
+    border:1.5px solid rgba(44,40,35,.12);background:transparent;cursor:pointer;font-family:inherit;color:var(--ink);transition:border-color .2s,background .2s,box-shadow .2s}
+  .size-btn.sel{border-color:var(--gold);background:#FFFDF5;box-shadow:0 0 0 3px rgba(200,162,74,.16)}
+  .size-btn .check{display:none;position:absolute;top:-7px;right:-7px;width:19px;height:19px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center}
+  .size-btn.sel .check{display:flex}
+  .size-btn .nm{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;text-align:center;line-height:1.25}
+  .size-btn .pr{font-size:13px;font-weight:600;color:var(--gold-deep)}
+
+  .fruits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .fruit-btn{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;cursor:pointer;font-family:inherit}
+  .fruit-btn .dot{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 2px var(--panel),0 0 0 3px rgba(44,40,35,.12);transition:box-shadow .2s,transform .2s}
+  .fruit-btn:hover .dot{transform:scale(1.06)}
+  .fruit-btn.sel .dot{box-shadow:0 0 0 2px var(--panel),0 0 0 4px var(--gold)}
+  .fruit-btn .nm{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+  .fruit-btn.sel .nm{color:var(--berry);font-weight:600}
+
+  .extras{display:flex;flex-wrap:wrap;gap:14px 34px;border-top:1px solid var(--faint);margin-top:clamp(20px,2.4vw,26px);padding-top:clamp(16px,2vw,20px)}
+  .extra{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+  .extra .nm{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .extra .pr{font-size:12px;color:#9A8F7C;font-weight:600}
+  .switch{width:42px;height:24px;border-radius:12px;background:rgba(44,40,35,.15);position:relative;transition:background .2s;flex:none}
+  .switch::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .extra.on .switch{background:var(--gold)}
+  .extra.on .switch::after{left:21px}
+  /* extras as dropdowns */
+  .extra-row{display:flex;align-items:center;gap:12px;width:100%}
+  .extra-row .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;min-width:64px}
+  .extra-select{flex:1;appearance:none;-webkit-appearance:none;background-color:#FFFDF5;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="%232C2823" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1.5 6 6.5 11 1.5"/></svg>');
+    background-repeat:no-repeat;background-position:right 13px center;
+    border:1.5px solid rgba(44,40,35,.16);border-radius:11px;padding:11px 34px 11px 14px;font-family:inherit;font-size:12.5px;
+    letter-spacing:.04em;color:var(--ink);cursor:pointer;transition:border-color .2s,box-shadow .2s}
+  .extra-select:hover{border-color:rgba(44,40,35,.3)}
+  .extra-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,162,74,.16)}
+  .extra-select.on{border-color:var(--gold)}
+  .extra-row .pr{font-size:12px;color:#9A8F7C;font-weight:600;min-width:44px;text-align:right}
+  .fruit-btn{position:relative}
+  .fruit-btn .badge{position:absolute;top:-3px;right:0;font-size:8px;font-weight:700;color:#fff;background:var(--gold-deep);
+    padding:1px 4px;border-radius:6px;letter-spacing:.02em}
+
+  .summary{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border-top:1px solid var(--faint);margin-top:clamp(16px,2vw,20px);padding-top:clamp(16px,2vw,20px)}
+  .summary .txt{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2vw,23px);font-style:italic;color:#5A5349}
+  .summary .total{font-size:20px;font-weight:600;color:var(--ink)}
+  .summary .go{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:100px;background:var(--gold);color:#fff;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+  .summary .go:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(140,107,36,.35)}
+
+  /* ---------- FEATURE BAR ---------- */
+  .features{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--faint);border-bottom:1px solid var(--faint);background:var(--panel)}
+  .features .grid{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .feature{display:flex;align-items:center;gap:16px;padding:24px clamp(20px,3vw,44px);border-right:1px solid var(--faint)}
+  .feature:last-child{border-right:0}
+  .feature .t{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .feature .s{font-size:14px;color:var(--muted)}
+
+  footer{background:var(--panel);border-top:1px solid var(--faint);padding:clamp(40px,5vw,64px) 20px;text-align:center;margin-top:0}
+  footer .links{display:flex;justify-content:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:26px}
+  footer .brand{font-size:15px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;padding-left:.34em}
+  footer .sub{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#9A8F7C;font-weight:600;margin-top:8px;padding-left:.34em}
+  footer .ig{display:inline-block;margin-top:20px;font-size:16px;letter-spacing:.14em;color:var(--berry);font-weight:600}
+  footer .fine{margin-top:22px;font-size:14px;color:#9A8F7C;letter-spacing:.06em}
+  .footer-logo{display:block;width:128px;height:auto;margin:0 auto 8px}
+
+  /* scroll-rotating 3D cone background */
+  #coneBg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity .8s ease}
+  #coneBg.on{opacity:.62}
+  .sign,header.hero,.config-wrap,.features,footer{position:relative;z-index:1}
+  @media(max-width:900px){ #coneBg{opacity:0 !important} }   /* keep text readable on small screens */
+</style>
+</head>
+<body>
+
+<canvas id="coneBg" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="links">
+    <a href="menu.html">Menu</a>
+    <a href="#build">Build a Scoop</a>
+    <a href="about.html">About</a>
+    <a href="locations.html">Locations</a>
+  </div>
+  <a href="#build" class="order-btn">Order Now</a>
+</nav>
+
+<!-- 3D wall-mounted sign -->
+<div class="sign" id="sign">
+  <div class="brand-wall-logo" id="signLogo" aria-label="Gourmet Scoops Premium Crafted">
+    <img src="gourmet-scoops-logo.png" alt="Gourmet Scoops Premium Crafted">
+  </div>
+</div>
+
+<header class="hero" id="about">
+  <div class="kicker">New Zealand Style</div>
+  <h1>Real Fruit<br>Ice-Cream</h1>
+  <div class="divider">
+    <div class="line"></div>
+    <svg width="16" height="20" viewBox="0 0 26 30" fill="none" stroke="#2C2823" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3c-3.6 0-6.2 2.7-6.2 5.9 0 .5.05.9.15 1.3C5.4 11 4.4 12.4 4.4 14c0 2.4 2 4.3 4.7 4.3h7.8c2.7 0 4.7-1.9 4.7-4.3 0-1.6-1-3-2.55-3.8.1-.4.15-.8.15-1.3C19.2 5.7 16.6 3 13 3Z"></path><path d="M8.6 19.2 13 28l4.4-8.8"></path></svg>
+    <div class="line"></div>
+  </div>
+  <p class="tagline">Made with real fruit. Crafted with care.</p>
+  <div class="ctas">
+    <a class="cta-dark" href="#build">Build Your Scoop
+      <svg width="20" height="12" viewBox="0 0 20 12" fill="none" stroke="#F6EED0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h17M13 1l5 5-5 5"></path></svg>
+    </a>
+    <a class="cta-line" href="menu.html">View Menu</a>
+  </div>
+</header>
+
+<!-- BUILD YOUR SCOOP — cleaned -->
+<div class="config-wrap" id="build">
+  <div class="build-grid">
+  <div class="config">
+    <h2>Build Your Scoop</h2>
+    <div class="steps">
+      <div>
+        <div class="step-label"><b>01</b> Choose Size</div>
+        <div class="sizes" id="sizes">
+          <button class="size-btn sel" data-size="waffle" data-price="8">
+            <span class="check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#FBF7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3 5 8.6 9.5 3.6"></path></svg></span>
+            <svg width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="#2C2823" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13c-1 0-1.8-.8-1.8-1.8 0-.7.4-1.3 1-1.6-.1-.3-.15-.6-.15-.9C7.05 6.2 8.6 4.7 10.5 4.7c.3 0 .6.04.9.1C11.8 3.5 13.3 2.6 15 2.6s3.2.9 3.6 2.2c.3-.06.6-.1.9-.1 1.9 0 3.45 1.5 3.45 3.9 0 .3-.05.6-.15.9.6.3 1 .9 1 1.6 0 1-.8 1.8-1.8 1.8H8Z"></path><path d="M9.5 13.5 15 31l5.5-17.5"></path></svg>
+            <span class="nm">Waffle<br>Cone</span><span class="pr">$8</span>
+          </button>
+          <button class="size-btn" data-size="regular" data-price="8">
+            <span class="check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#FBF7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3 5 8.6 9.5 3.6"></path></svg></span>
+            <svg width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="#2C2823" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5c0-1.7 2.7-3 6-3s6 1.3 6 3M9.6 12l1.6 18.4h7.6L20.4 12"></path><path d="M8.2 12h13.6"></path></svg>
+            <span class="nm">Regular<br>Cup</span><span class="pr">$8</span>
+          </button>
+          <button class="size-btn" data-size="large" data-price="11">
+            <span class="check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#FBF7E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3 5 8.6 9.5 3.6"></path></svg></span>
+            <svg width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="#2C2823" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5c0-1.7 3.1-3 7-3s7 1.3 7 3M8.7 11l1.9 20h8.8L21.3 11"></path><path d="M7.5 11h15"></path></svg>
+            <span class="nm">Large<br>Cup</span><span class="pr">$11</span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <div class="step-label"><b>02</b> Choose Fruit</div>
+        <div class="fruits" id="fruits">
+          <button class="fruit-btn" data-fruit="Banana" data-id="banana" data-sur="0">
+            <span class="dot" style="background:radial-gradient(circle at 34% 30%, #F3E6A0, #E6D26A 62%, #D2BC48)"></span><span class="nm">Banana</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Blueberry" data-id="blueberry" data-sur="0">
+            <span class="dot" style="background:radial-gradient(circle at 34% 30%, #AEA0D6, #8B79C0 62%, #6E5AA6)"></span><span class="nm">Blueberry</span>
+          </button>
+          <button class="fruit-btn sel" data-fruit="Raspberry" data-id="raspberry" data-sur="0">
+            <span class="dot" style="background:radial-gradient(circle at 34% 30%, #E86A8B, #C23557 62%, #9E2242)"></span><span class="nm">Raspberry</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Mango" data-id="mango" data-sur="0">
+            <span class="dot" style="background:radial-gradient(circle at 34% 30%, #FFCE67, #F5A623 62%, #DE8A0D)"></span><span class="nm">Mango</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Pineapple" data-id="pineapple" data-sur="0">
+            <span class="dot" style="background:radial-gradient(circle at 34% 30%, #F0E7A4, #E4D06E 62%, #CBB44E)"></span><span class="nm">Pineapple</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Dragonfruit" data-id="dragonfruit" data-sur="1.5">
+            <span class="badge">+$1.5</span><span class="dot" style="background:radial-gradient(circle at 34% 30%, #E85BA8, #D6368E 62%, #B02472)"></span><span class="nm">Dragonfruit</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Lychee" data-id="lychee" data-sur="1.5">
+            <span class="badge">+$1.5</span><span class="dot" style="background:radial-gradient(circle at 34% 30%, #F0E2DA, #E2D0C6 62%, #CDB4A8)"></span><span class="nm">Lychee</span>
+          </button>
+          <button class="fruit-btn" data-fruit="Cherry" data-id="cherry-seasonal" data-sur="1.5">
+            <span class="badge">+$1.5</span><span class="dot" style="background:radial-gradient(circle at 34% 30%, #CE6A96, #B84A78 62%, #96335E)"></span><span class="nm">Cherry</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="extras">
+      <div class="step-label" style="width:100%;margin-bottom:2px"><b>03</b> Extras</div>
+      <div class="extra-row">
+        <span class="lbl">Drizzle</span>
+        <select class="extra-select" id="drizzleSel" aria-label="Choose a drizzle">
+          <option value="">None</option>
+          <option>Chocolate</option><option>Butterscotch</option><option>Strawberry</option>
+          <option>White Choc Top</option><option>Strawberry Choc Top</option><option>Milk Choc Top</option>
+        </select>
+        <span class="pr">+$0.50</span>
+      </div>
+      <div class="extra-row">
+        <span class="lbl">Topping</span>
+        <select class="extra-select" id="toppingSel" aria-label="Choose a topping">
+          <option value="">None</option>
+          <option>Chocolate Flakes</option><option>Meringue</option><option>Toasted Almond</option>
+          <option>Toasted Coconut</option><option>Biscoff Crumble</option><option>Toasted Marshmallow</option><option>Oreo Pieces</option>
+        </select>
+        <span class="pr">+$0.80</span>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="txt" id="sumTxt">Waffle Cone · Raspberry</div>
+      <div style="display:flex;align-items:center;gap:18px">
+        <span class="total" id="sumTotal">$8.00</span>
+        <button class="go">Order Now</button>
+      </div>
+    </div>
+  </div>
+  <aside class="scoop-photo" id="scoopPhoto" aria-label="Your scoop">
+    <div class="frame"><img id="scoopImg" src="photos/scoops/raspberry-waffle.png" alt="Raspberry Waffle Cone" width="300" height="430"></div>
+    <div class="cap" id="scoopCap">Raspberry · Waffle Cone</div>
+  </aside>
+  </div>
+</div>
+
+<section class="features" id="fruit">
+  <div class="grid">
+    <div class="feature">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#4F7D3C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24c0-9 6-16 18-17-1 12-8 18-18 17ZM6 24c3-6 7-9 12-11"></path></svg>
+      <div><div class="t">Real Fruit</div><div class="s">No artificial flavours</div></div>
+    </div>
+    <div class="feature">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#8F5F32" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="15" r="11"></circle><path d="M15 4v22M4 15h22M7.2 7.2l15.6 15.6M22.8 7.2 7.2 22.8"></path></svg>
+      <div><div class="t">NZ Style</div><div class="s">Fresh &amp; natural</div></div>
+    </div>
+    <div class="feature">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#2C2823" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3h6M13 3v3.5L10.5 10c-.6.9-1 2-1 3.1V25a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V13.1c0-1.1-.4-2.2-1-3.1L17 6.5V3M10 15h10"></path></svg>
+      <div><div class="t">Premium Quality</div><div class="s">Small batch crafted</div></div>
+    </div>
+    <div class="feature">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#B23B3B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 25C6 19 3 14 3 10.5 3 7.5 5.3 5 8.3 5c2 0 3.7 1.1 4.7 2.8h4c1-1.7 2.7-2.8 4.7-2.8 3 0 5.3 2.5 5.3 5.5C27 14 24 19 15 25Z"></path></svg>
+      <div><div class="t">Made With Care</div><div class="s">For your everyday treat</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="locations">
+  <div class="links">
+    <a href="menu.html">Menu</a><a href="#build">Build a Scoop</a><a href="about.html">About</a><a href="locations.html">Locations</a>
+  </div>
+  <img class="footer-logo" src="gourmet-scoops-logo.png" alt="Gourmet Scoops Premium Crafted">
+  <a class="ig" href="#">@gourmetscoops</a>
+  <div class="fine">New Zealand Style Real Fruit Icecream</div>
+</footer>
+
+<script>
+/* ---------- configurator: size base + fruit surcharge + drizzle + topping ---------- */
+(function(){
+  var sizeNames={waffle:'Waffle Cone', regular:'Regular Cup', large:'Large Cup'};
+  var state={ size:{name:'Waffle Cone',price:8,key:'waffle'}, fruit:{name:'Raspberry',id:'raspberry',sur:0}, drizzle:'', topping:'' };
+  var img=document.getElementById('scoopImg'), photo=document.getElementById('scoopPhoto'),
+      cap=document.getElementById('scoopCap'), sumTxt=document.getElementById('sumTxt'),
+      sumTotal=document.getElementById('sumTotal'),
+      drizzleSel=document.getElementById('drizzleSel'), toppingSel=document.getElementById('toppingSel');
+
+  function swapPhoto(){                                   // photo tracks fruit AND size
+    photo.classList.add('swap');                          // fade out, preload, fade in
+    var next=new Image();
+    next.onload=function(){ img.src=next.src; img.alt=state.fruit.name+' '+state.size.name; photo.classList.remove('swap'); };
+    next.onerror=function(){ photo.classList.remove('swap'); };
+    next.src='photos/scoops/'+state.fruit.id+'-'+state.size.key+'.png';
+  }
+  function render(){
+    var total=state.size.price + state.fruit.sur + (state.drizzle?0.5:0) + (state.topping?0.8:0);
+    var parts=[state.fruit.name, state.size.name];
+    if(state.drizzle) parts.push(state.drizzle+' drizzle');
+    if(state.topping) parts.push(state.topping);
+    sumTxt.textContent=parts.join(' · ');
+    sumTotal.textContent='$'+total.toFixed(2);
+    cap.textContent=state.fruit.name+' · '+state.size.name;
+  }
+
+  document.querySelectorAll('.size-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.size-btn').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel'); state.size={name:sizeNames[b.dataset.size], price:+b.dataset.price, key:b.dataset.size}; swapPhoto(); render();
+    });
+  });
+
+  document.querySelectorAll('.fruit-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.fruit-btn').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel'); state.fruit={name:b.dataset.fruit, id:b.dataset.id, sur:+b.dataset.sur}; swapPhoto(); render();
+    });
+  });
+
+  drizzleSel.addEventListener('change',function(){ state.drizzle=drizzleSel.value; drizzleSel.classList.toggle('on',!!drizzleSel.value); render(); });
+  toppingSel.addEventListener('change',function(){ state.topping=toppingSel.value; toppingSel.classList.toggle('on',!!toppingSel.value); render(); });
+  render();
+})();
+</script>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/GLTFLoader.js"></script>
+<script src="lib/RGBELoader.js"></script>
+<script src="lib/cone-background.js"></script>
+</body>
+</html>
